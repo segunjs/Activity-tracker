@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<body style="background-color: lightgray;">
+<form method="post"
+      style="min-width: 400px; max-width:50%; background-color: white; border-radius: 10px; margin: auto;" action="/login">
+    <div style ="text-align: center; margin: auto 10px auto 10px;"><h1> Login</h1></div>
+    <label style="margin: auto 20px auto 20px;" for="email">Enter your Email: <input id="email" name="email" type="email"></label><br>
+    <label style="margin: auto 20px auto 20px;"  for ="password">Enter Your Password:<input id ="password" name="password" type="password"></label><br>
+    <button style="background-color: lightblue; margin: auto 20px auto 20px ; width: 100px; height: 75px;" type="submit">Login</button>
+    <p>Do not have an account? <a href="/signUp">Please signup</a></p>
+    <div class="card-footer bg-white text-success" th:if="${errorMessage!=null}">
+        <span th:text="${errorMessage}"></span>
+    </div>
+</form>
+
+</body>
+</html>

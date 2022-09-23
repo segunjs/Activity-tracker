@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Sign Up</title>
+</head>
+<body style="background-color: lightgray;">
+<form style="min-width: 400px; max-width:50%; background-color: white; border-radius: 10px; margin: auto;" action="/userSignUp" method="post" >
+    <div style ="text-align: center; margin: auto 10px auto 10px;"><h1>User SignUp</h1></div>
+    <label style="margin: auto 20px auto 20px;" for="name">Enter Your Name: <input id="name" name="name" required></label><br>
+    <label style="margin: auto 20px auto 20px;" for="email">Enter Your Email: <input id="email" name="email" type="email" required></label><br>
+    <label style="margin: auto 20px auto 20px;"  for ="password">Enter Your Password:<input id ="password" name="password" type="password" min ="6" required></label><br>
+    <label style="margin: auto 20px auto 20px;"  for ="passConfirm">Enter Your Password:<input id ="passConfirm" name="passConfirm" type="password" min ="6"  required></label><br>
+    <button style="background-color: orange; margin: auto 20px auto 20px ; width: 100px; height: 75px;" type="submit">Sign up</button>
+</form>
+</body>
+</html>

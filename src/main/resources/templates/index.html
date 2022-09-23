@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div align="center">
+
+    <div style="background-color: lightgray;">
+        <nav style="width: 40%;">
+            <a style="margin-left:10px;color: black; width: 50%;" href="/logout">Logout</a>
+        </nav>
+    </div>
+    <h1>ACTIVITY TRACKER</h1>
+    <form action="#" th:action="@{/tasks/taskById}" method="get">
+        <input type="text" name="id" placeholder="Search by Id" required="required">
+        <input type="submit" value="Search">
+    </form>
+    <form action="#" th:action="@{/tasks/taskByStatus}" method="get">
+        <input type="text" name="status" placeholder="Search by Status" required="required">
+        <input type="submit" value="Search">
+    </form>
+    <a href="/tasks/new">
+        <button>Add New Task</button>
+    </a>
+    <a href="/tasks/">
+        <button>View All Tasks</button>
+    </a>
+    <table border="1" cellpadding="5">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>DESCRIPTION</th>
+            <th>STATUS</th>
+            <th>CREATED AT</th>
+            <th>UPDATED AT</th>
+            <th>COMPLETED AT</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${allTasks}">
+            <td th:text="${task.id}"></td>
+            <td th:text="${task.title}"></td>
+            <td th:text="${task.description}"></td>
+            <td th:text="${task.status}"></td>
+            <td th:text="${task.createdAt}"></td>
+            <td th:text="${task.updatedAt}"></td>
+            <td th:text="${task.completedAt}"></td>
+            <td>
+                <a th:href="@{/tasks/edit/{id}(id=${task.id})}">Edit</a>
+            </td>
+            <td>
+                <a th:href="@{/tasks/delete/{id}(id=${task.id})}">Delete</a>
+            </td>
+            <td>
+                <a th:href="@{/tasks/start/{id}(id=${task.id})}">Start Task</a>
+            </td>
+            <td>
+                <a th:href="@{/tasks/done/{id}(id=${task.id})}">Move to Done</a>
+            </td>
+            <td>
+                <a th:href="@{/tasks/pending/{id}(id=${task.id})}">Move to Pending</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
